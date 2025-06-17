@@ -1,0 +1,79 @@
+{%- comment -%}
+===========================================
+KLARNA HERO SECTION
+File: sections/klarna-hero.liquid
+Gradient background + split layout + phone mockup
+===========================================
+{%- endcomment -%}
+
+{{ 'klarna-sections.css' | asset_url | stylesheet_tag }}
+{{ 'klarna-hero.js' | asset_url | script_tag }}
+
+<section class="klarna-hero" role="region" aria-labelledby="klarna-hero-title" data-parallax="{{ section.settings.enable_parallax }}" style="padding-top: {{ section.settings.section_padding_top }}px; padding-bottom: {{ section.settings.section_padding_bottom }}px;">
+  <div class="klarna-hero-container">
+    <div class="klarna-hero-content">
+      {% if section.settings.hero_title != blank %}
+        <h1 id="klarna-hero-title">{{ section.settings.hero_title | escape }}</h1>
+      {% endif %}
+
+      {% if section.settings.show_rating %}
+        <div class="klarna-app-rating">
+          <span class="klarna-stars">{{ section.settings.rating_text }}</span>
+        </div>
+      {% endif %}
+
+      {% if section.settings.hero_subtitle != blank %}
+        <p class="klarna-hero-text">{{ section.settings.hero_subtitle }}</p>
+      {% endif %}
+
+      {% if section.settings.cta_url != blank %}
+        <a href="{{ section.settings.cta_url }}" class="klarna-cta-btn">{{ section.settings.cta_text | escape }}</a>
+      {% else %}
+        <span class="klarna-cta-btn">{{ section.settings.cta_text | escape }}</span>
+      {% endif %}
+    </div>
+
+    {% if section.settings.show_phone_mockup %}
+    <div class="klarna-hero-phone">
+      <div class="klarna-phone-mockup">
+        <div class="klarna-phone-screen">
+          <div style="margin-bottom: 20px;">📱</div>
+          <div style="text-align: center;">
+            <div style="margin-bottom: 10px;">{{ section.settings.phone_option_1 }}</div>
+            <div style="margin-bottom: 10px;">{{ section.settings.phone_option_2 }}</div>
+            <div style="margin-bottom: 10px;">{{ section.settings.phone_option_3 }}</div>
+            <div>{{ section.settings.phone_option_4 }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Klarna Hero",
+  "tag": "section",
+  "class": "klarna-hero-section",
+  "settings": [
+    { "type": "text", "id": "hero_title", "label": "Hero title", "default": "Paga a modo tuo con Klarna" },
+    { "type": "textarea", "id": "hero_subtitle", "label": "Hero subtitle", "default": "Acquista in sicurezza e scegli come pagare: oggi, tra 30 giorni, in 3 rate senza interessi, o nel tempo." },
+    { "type": "checkbox", "id": "show_rating", "label": "Show rating", "default": true },
+    { "type": "text", "id": "rating_text", "label": "Rating text", "default": "★ 4.3/5 sull'App Store" },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Scopri di più" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+    { "type": "checkbox", "id": "show_phone_mockup", "label": "Show phone mockup", "default": true },
+    { "type": "text", "id": "phone_option_1", "label": "Phone option 1", "default": "💳 Paga ora" },
+    { "type": "text", "id": "phone_option_2", "label": "Phone option 2", "default": "📅 Paga in 3 rate senza interessi" },
+    { "type": "text", "id": "phone_option_3", "label": "Phone option 3", "default": "⏰ Paga dopo 30 giorni" },
+    { "type": "text", "id": "phone_option_4", "label": "Phone option 4", "default": "💰 Finanziamento" },
+    { "type": "checkbox", "id": "enable_parallax", "label": "Enable parallax", "default": true },
+    { "type": "range", "id": "section_padding_top", "label": "Padding top", "min": 0, "max": 100, "default": 64 },
+    { "type": "range", "id": "section_padding_bottom", "label": "Padding bottom", "min": 0, "max": 100, "default": 64 }
+  ],
+  "presets": [
+    { "name": "Klarna Hero" }
+  ]
+}
+{% endschema %}
