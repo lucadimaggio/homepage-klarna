@@ -1,0 +1,104 @@
+{%- comment -%}
+KLARNA BRANDS SECTION
+File: sections/klarna-brands.liquid
+Interactive brand cards + cashback badges + hover effects
+{%- endcomment -%}
+
+<section id="klarna-brands-{{ section.id }}" class="klarna-brands">
+  <div class="klarna-brands-container">
+    {% if section.settings.section_title != blank %}
+      <h2 class="klarna-brands-title">{{ section.settings.section_title | escape }}</h2>
+    {% endif %}
+    <div class="klarna-brands-grid" style="--cards: {{ section.settings.cards_per_row_desktop }};">
+      <div class="klarna-brand-card">
+        {{ section.settings.brand_1_icon | escape }}
+        {% if section.settings.brand_1_show_badge %}
+          <div class="klarna-cashback-badge">{{ section.settings.brand_1_cashback | escape }}</div>
+        {% endif %}
+      </div>
+      <div class="klarna-brand-card">
+        {{ section.settings.brand_2_icon | escape }}
+        {% if section.settings.brand_2_show_badge and section.settings.brand_2_cashback != blank %}
+          <div class="klarna-cashback-badge">{{ section.settings.brand_2_cashback | escape }}</div>
+        {% endif %}
+      </div>
+      <div class="klarna-brand-card">
+        {{ section.settings.brand_3_icon | escape }}
+        {% if section.settings.brand_3_show_badge and section.settings.brand_3_cashback != blank %}
+          <div class="klarna-cashback-badge">{{ section.settings.brand_3_cashback | escape }}</div>
+        {% endif %}
+      </div>
+      <div class="klarna-brand-card">
+        {{ section.settings.brand_4_icon | escape }}
+        {% if section.settings.brand_4_show_badge %}
+          <div class="klarna-cashback-badge">{{ section.settings.brand_4_cashback | escape }}</div>
+        {% endif %}
+      </div>
+      <div class="klarna-brand-card">
+        {{ section.settings.brand_5_icon | escape }}
+        {% if section.settings.brand_5_show_badge and section.settings.brand_5_cashback != blank %}
+          <div class="klarna-cashback-badge">{{ section.settings.brand_5_cashback | escape }}</div>
+        {% endif %}
+      </div>
+      <div class="klarna-brand-card">
+        {{ section.settings.brand_6_icon | escape }}
+        {% if section.settings.brand_6_show_badge and section.settings.brand_6_cashback != blank %}
+          <div class="klarna-cashback-badge">{{ section.settings.brand_6_cashback | escape }}</div>
+        {% endif %}
+      </div>
+      <div class="klarna-brand-card">
+        {{ section.settings.brand_7_icon | escape }}
+        {% if section.settings.brand_7_show_badge and section.settings.brand_7_cashback != blank %}
+          <div class="klarna-cashback-badge">{{ section.settings.brand_7_cashback | escape }}</div>
+        {% endif %}
+      </div>
+      <div class="klarna-brand-card">
+        {{ section.settings.brand_8_icon | escape }}
+        {% if section.settings.brand_8_show_badge %}
+          <div class="klarna-cashback-badge">{{ section.settings.brand_8_cashback | escape }}</div>
+        {% endif %}
+      </div>
+    </div>
+</div>
+</section>
+
+{{ 'klarna-brands.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.enable_hover_effects %}
+  {{ 'klarna-brands.js' | asset_url | script_tag }}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Klarna Brands",
+  "tag": "section",
+  "class": "klarna-brands",
+  "settings": [
+    {"type": "text", "id": "section_title", "label": "Titolo sezione", "default": "Paga con Klarna nei tuoi brand preferiti"},
+    {"type": "text", "id": "brand_1_icon", "label": "Brand 1 Icona", "default": "🏠"},
+    {"type": "text", "id": "brand_1_cashback", "label": "Brand 1 Cashback", "default": "Cashback del 5%"},
+    {"type": "checkbox", "id": "brand_1_show_badge", "label": "Mostra badge Brand 1", "default": true},
+    {"type": "text", "id": "brand_2_icon", "label": "Brand 2 Icona", "default": "💄"},
+    {"type": "checkbox", "id": "brand_2_show_badge", "label": "Mostra badge Brand 2", "default": false},
+    {"type": "text", "id": "brand_3_icon", "label": "Brand 3 Icona", "default": "👕"},
+    {"type": "checkbox", "id": "brand_3_show_badge", "label": "Mostra badge Brand 3", "default": false},
+    {"type": "text", "id": "brand_4_icon", "label": "Brand 4 Icona", "default": "🛏️"},
+    {"type": "text", "id": "brand_4_cashback", "label": "Brand 4 Cashback", "default": "Cashback del 5%"},
+    {"type": "checkbox", "id": "brand_4_show_badge", "label": "Mostra badge Brand 4", "default": true},
+    {"type": "text", "id": "brand_5_icon", "label": "Brand 5 Icona", "default": "🛒"},
+    {"type": "checkbox", "id": "brand_5_show_badge", "label": "Mostra badge Brand 5", "default": false},
+    {"type": "text", "id": "brand_6_icon", "label": "Brand 6 Icona", "default": "✈️"},
+    {"type": "checkbox", "id": "brand_6_show_badge", "label": "Mostra badge Brand 6", "default": false},
+    {"type": "text", "id": "brand_7_icon", "label": "Brand 7 Icona", "default": "💻"},
+    {"type": "checkbox", "id": "brand_7_show_badge", "label": "Mostra badge Brand 7", "default": false},
+    {"type": "text", "id": "brand_8_icon", "label": "Brand 8 Icona", "default": "👟"},
+    {"type": "text", "id": "brand_8_cashback", "label": "Brand 8 Cashback", "default": "Cashback del 5%"},
+    {"type": "checkbox", "id": "brand_8_show_badge", "label": "Mostra badge Brand 8", "default": true},
+    {"type": "checkbox", "id": "enable_hover_effects", "label": "Abilita animazioni hover", "default": true},
+    {"type": "range", "id": "cards_per_row_desktop", "label": "Cards per riga (desktop)", "min": 3, "max": 6, "default": 4}
+  ],
+  "presets": [
+    {"name": "Klarna Brands"}
+  ]
+}
+{% endschema %}
