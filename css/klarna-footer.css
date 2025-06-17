@@ -1,0 +1,53 @@
+/* KLARNA FOOTER - CSS SPECIFICO */
+.klarna-footer {
+  background: var(--klarna-dark);
+  color: var(--klarna-white);
+  padding: var(--space-2xl) 0;
+}
+.klarna-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-xl);
+}
+.klarna-footer-section h4 {
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-lg);
+  color: var(--klarna-white);
+}
+.klarna-footer-section a {
+  color: #9CA3AF;
+  text-decoration: none;
+  display: block;
+  margin-bottom: var(--space-sm);
+  transition: color 0.2s ease;
+}
+.klarna-footer-section a:hover,
+.klarna-footer-section a:focus {
+  color: var(--klarna-white);
+  outline: none;
+}
+.klarna-footer-bottom {
+  margin-top: var(--space-2xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+}
+.klarna-footer-logo img {
+  width: 120px;
+  height: auto;
+}
+@media (max-width: 768px) {
+  .klarna-footer-container {
+    grid-template-columns: repeat(var(--mobile-columns, 1), 1fr);
+  }
+  .klarna-footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}

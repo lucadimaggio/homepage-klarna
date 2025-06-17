@@ -1,0 +1,111 @@
+{%- comment -%}
+KLARNA FOOTER SECTION
+File: sections/klarna-footer.liquid
+5-column footer + dark background + link lists
+{%- endcomment -%}
+
+{% liquid
+{{ "klarna-footer.css" | asset_url | stylesheet_tag }}
+{{ "klarna-footer.js" | asset_url | script_tag }}
+  assign mobile_cols = section.settings.columns_per_row_mobile
+%}
+
+<footer class="klarna-footer" role="contentinfo">
+  <nav class="klarna-footer-container" aria-label="Footer" style="--mobile-columns:{{ mobile_cols }}">
+    <div class="klarna-footer-section">
+      {% if section.settings.column_1_title != blank %}
+        <h4>{{ section.settings.column_1_title | escape }}</h4>
+      {% endif %}
+      {% for link in linklists[section.settings.column_1_links].links %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
+    </div>
+    <div class="klarna-footer-section">
+      {% if section.settings.column_2_title != blank %}
+        <h4>{{ section.settings.column_2_title | escape }}</h4>
+      {% endif %}
+      {% for link in linklists[section.settings.column_2_links].links %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
+    </div>
+    <div class="klarna-footer-section">
+      {% if section.settings.column_3_title != blank %}
+        <h4>{{ section.settings.column_3_title | escape }}</h4>
+      {% endif %}
+      {% for link in linklists[section.settings.column_3_links].links %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
+      {% if shop.privacy_policy %}
+        <a href="{{ shop.privacy_policy.url }}">{{ shop.privacy_policy.title }}</a>
+      {% endif %}
+      {% if shop.terms_of_service %}
+        <a href="{{ shop.terms_of_service.url }}">{{ shop.terms_of_service.title }}</a>
+      {% endif %}
+      {% if shop.shipping_policy %}
+        <a href="{{ shop.shipping_policy.url }}">{{ shop.shipping_policy.title }}</a>
+      {% endif %}
+      {% if shop.refund_policy %}
+        <a href="{{ shop.refund_policy.url }}">{{ shop.refund_policy.title }}</a>
+      {% endif %}
+    </div>
+    <div class="klarna-footer-section">
+      {% if section.settings.column_4_title != blank %}
+        <h4>{{ section.settings.column_4_title | escape }}</h4>
+      {% endif %}
+      {% for link in linklists[section.settings.column_4_links].links %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
+    </div>
+    <div class="klarna-footer-section">
+      {% if section.settings.column_5_title != blank %}
+        <h4>{{ section.settings.column_5_title | escape }}</h4>
+      {% endif %}
+      {% for link in linklists[section.settings.column_5_links].links %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
+    </div>
+
+    <div class="klarna-footer-bottom">
+      {% if section.settings.show_logo and section.settings.footer_logo != blank %}
+        <div class="klarna-footer-logo">
+          {{ section.settings.footer_logo | image_url: width: 160 | image_tag: loading: 'lazy', alt: section.settings.footer_logo.alt | escape }}
+        </div>
+      {% endif %}
+      {% if section.settings.show_copyright %}
+        <div class="klarna-footer-copy">
+          {% assign year = 'now' | date: '%Y' %}
+          {{ section.settings.copyright_text | replace: '2024', year }}
+        </div>
+      {% endif %}
+    </div>
+  </nav>
+</footer>
+
+
+{% schema %}
+{
+  "name": "Klarna Footer",
+  "tag": "section",
+  "class": "klarna-footer-section",
+  "settings": [
+    {"type": "text", "id": "column_1_title", "default": "Mercato", "label": "Column 1 Title"},
+    {"type": "link_list", "id": "column_1_links", "label": "Column 1 Links"},
+    {"type": "text", "id": "column_2_title", "default": "Klarna", "label": "Column 2 Title"},
+    {"type": "link_list", "id": "column_2_links", "label": "Column 2 Links"},
+    {"type": "text", "id": "column_3_title", "default": "Clienti", "label": "Column 3 Title"},
+    {"type": "link_list", "id": "column_3_links", "label": "Column 3 Links"},
+    {"type": "text", "id": "column_4_title", "default": "Business", "label": "Column 4 Title"},
+    {"type": "link_list", "id": "column_4_links", "label": "Column 4 Links"},
+    {"type": "text", "id": "column_5_title", "default": "Segui", "label": "Column 5 Title"},
+    {"type": "link_list", "id": "column_5_links", "label": "Column 5 Links"},
+    {"type": "checkbox", "id": "show_logo", "default": false, "label": "Show Logo"},
+    {"type": "image_picker", "id": "footer_logo", "label": "Footer Logo"},
+    {"type": "text", "id": "copyright_text", "default": "© 2024 Klarna. Tutti i diritti riservati.", "label": "Copyright"},
+    {"type": "checkbox", "id": "show_copyright", "default": true, "label": "Show Copyright"},
+    {"type": "range", "id": "columns_per_row_mobile", "min": 1, "max": 2, "default": 1, "label": "Columns per row on mobile"}
+  ],
+  "presets": [
+    {"name": "Klarna Footer"}
+  ]
+}
+{% endschema %}
