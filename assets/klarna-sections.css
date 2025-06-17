@@ -1,0 +1,97 @@
+/* ===========================================
+   KLARNA HEADER - CSS SPECIFICO
+   File: assets/klarna-sections.css
+   =========================================== */
+
+.klarna-header {
+  background: var(--klarna-white);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--klarna-gray-200);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-index-sticky);
+}
+
+.klarna-nav {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.klarna-logo {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--klarna-black);
+  text-decoration: none;
+}
+
+.klarna-nav-links {
+  display: flex;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.klarna-nav-links a {
+  text-decoration: none;
+  color: var(--klarna-gray-600);
+  font-weight: var(--font-weight-medium);
+  transition: color 0.2s ease;
+}
+
+.klarna-nav-links a:hover,
+.klarna-nav-links a:focus {
+  color: var(--klarna-black);
+}
+
+.klarna-login-btn {
+  background: var(--klarna-black);
+  color: var(--klarna-white);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-xl);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.klarna-login-btn:hover,
+.klarna-login-btn:focus {
+  background: var(--klarna-gray-800);
+  transform: translateY(-1px);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: var(--font-size-2xl);
+  cursor: pointer;
+  color: var(--klarna-black);
+}
+
+@media (max-width: 767px) {
+  .klarna-nav {
+    padding-left: var(--container-padding-mobile);
+    padding-right: var(--container-padding-mobile);
+  }
+  .mobile-menu-btn {
+    display: block;
+  }
+  .klarna-nav-links {
+    display: none;
+    flex-direction: column;
+    background: var(--klarna-white);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: var(--space-lg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: var(--z-index-banner);
+  }
+  .klarna-nav-links.open {
+    display: flex;
+  }
+}
