@@ -1,0 +1,110 @@
+.klarna-security {
+  background: var(--klarna-dark);
+  color: var(--klarna-white);
+  padding: var(--space-3xl) 0;
+}
+
+.klarna-security-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+.klarna-security-container.klarna-security-reverse .klarna-security-content {
+  order: 2;
+}
+.klarna-security-container.klarna-security-reverse .klarna-security-visual {
+  order: 1;
+}
+
+.klarna-security-label {
+  font-size: 0.875rem;
+  margin-bottom: var(--space-sm);
+  opacity: 0.8;
+}
+
+.klarna-security-content h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-lg);
+}
+
+.klarna-security-text {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-xl);
+  opacity: 0.9;
+}
+
+.klarna-security-cta {
+  color: var(--klarna-white);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.klarna-security-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.klarna-security-device {
+  width: 200px;
+  height: 300px;
+  background: linear-gradient(135deg, #374151 0%, #1F2937 100%);
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.klarna-security-device-content {
+  text-align: center;
+  color: var(--klarna-white);
+}
+.klarna-security-device-icon {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.klarna-security-device-welcome {
+  font-size: 0.875rem;
+}
+.klarna-security-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 20px;
+  font-size: 1.5rem;
+}
+.klarna-keypad-key {
+  padding: 10px;
+  background: rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+.klarna-keypad-key:active,
+.klarna-keypad-key.pressed {
+  background: rgba(255,255,255,0.2);
+}
+
+@media (max-width: 768px) {
+  .klarna-security-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    text-align: center;
+  }
+  .klarna-security-container.klarna-security-reverse .klarna-security-content,
+  .klarna-security-container.klarna-security-reverse .klarna-security-visual {
+    order: initial;
+  }
+}
