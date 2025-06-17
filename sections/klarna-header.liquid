@@ -1,0 +1,111 @@
+{%- comment -%}
+===========================================
+KLARNA HEADER SECTION
+File: sections/klarna-header.liquid
+===========================================
+{%- endcomment -%}
+
+{{ 'klarna-sections.css' | asset_url | stylesheet_tag }}
+{{ 'klarna-header.js' | asset_url | script_tag }}
+
+<header class="klarna-header" role="banner">
+  <nav class="klarna-nav" aria-label="Main navigation">
+    <a href="/" class="klarna-logo">{{ section.settings.logo_text | escape }}</a>
+    {% if section.settings.show_mobile_menu %}
+    <button type="button" class="mobile-menu-btn" aria-expanded="false" aria-label="Toggle menu">☰</button>
+    {% endif %}
+    <div class="klarna-nav-links">
+      {% if section.settings.nav_link_1_url != blank %}
+        <a href="{{ section.settings.nav_link_1_url }}">{{ section.settings.nav_link_1_text | escape }}</a>
+      {% else %}
+        <span>{{ section.settings.nav_link_1_text | escape }}</span>
+      {% endif %}
+      {% if section.settings.nav_link_2_url != blank %}
+        <a href="{{ section.settings.nav_link_2_url }}">{{ section.settings.nav_link_2_text | escape }}</a>
+      {% else %}
+        <span>{{ section.settings.nav_link_2_text | escape }}</span>
+      {% endif %}
+      {% if section.settings.nav_link_3_url != blank %}
+        <a href="{{ section.settings.nav_link_3_url }}">{{ section.settings.nav_link_3_text | escape }}</a>
+      {% else %}
+        <span>{{ section.settings.nav_link_3_text | escape }}</span>
+      {% endif %}
+      {% if section.settings.login_url != blank %}
+        <a href="{{ section.settings.login_url }}" class="klarna-login-btn">{{ section.settings.login_text | escape }}</a>
+      {% else %}
+        <span class="klarna-login-btn">{{ section.settings.login_text | escape }}</span>
+      {% endif %}
+    </div>
+  </nav>
+</header>
+
+{% schema %}
+{
+  "name": "Klarna Header",
+  "tag": "section",
+  "class": "klarna-header-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text",
+      "default": "Klarna"
+    },
+    {
+      "type": "text",
+      "id": "nav_link_1_text",
+      "label": "Link 1 text",
+      "default": "Scopri Klarna"
+    },
+    {
+      "type": "url",
+      "id": "nav_link_1_url",
+      "label": "Link 1 URL"
+    },
+    {
+      "type": "text",
+      "id": "nav_link_2_text",
+      "label": "Link 2 text",
+      "default": "Shop"
+    },
+    {
+      "type": "url",
+      "id": "nav_link_2_url",
+      "label": "Link 2 URL"
+    },
+    {
+      "type": "text",
+      "id": "nav_link_3_text",
+      "label": "Link 3 text",
+      "default": "Servizio clienti"
+    },
+    {
+      "type": "url",
+      "id": "nav_link_3_url",
+      "label": "Link 3 URL"
+    },
+    {
+      "type": "text",
+      "id": "login_text",
+      "label": "Login text",
+      "default": "🔍 Login"
+    },
+    {
+      "type": "url",
+      "id": "login_url",
+      "label": "Login URL"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_mobile_menu",
+      "label": "Abilita menu mobile",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Klarna Header"
+    }
+  ]
+}
+{% endschema %}
