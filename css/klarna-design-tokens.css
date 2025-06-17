@@ -1,0 +1,366 @@
+/* ========================================
+   KLARNA DESIGN TOKENS
+   Sistema di variabili CSS per design Klarna
+   ======================================== */
+
+:root {
+  /* ===================
+     PALETTE COLORI
+     =================== */
+  
+  /* Colori Primari Klarna */
+  --klarna-dark: #1A0B2E;              /* Sfondo hero e footer */
+  --klarna-pink: #FFB3D4;              /* Rosa brand principale */
+  --klarna-purple: #8B5FBF;            /* Viola per accenti */
+  --klarna-green: #00D4AA;             /* Verde cashback/success */
+  --klarna-white: #FFFFFF;             /* Bianco principale */
+  --klarna-black: #000000;             /* Nero testo/elementi */
+  
+  /* Colori Secondari */
+  --klarna-pink-light: #FFE4E6;        /* Rosa chiaro per sfondi */
+  --klarna-pink-dark: #FF8A9B;         /* Rosa scuro per hover */
+  --klarna-purple-light: #E6E3FF;      /* Viola chiaro */
+  --klarna-purple-dark: #6B46C1;       /* Viola scuro */
+  --klarna-gray-50: #F9FAFB;           /* Grigio molto chiaro */
+  --klarna-gray-100: #F3F4F6;          /* Grigio chiaro */
+  --klarna-gray-200: #E5E7EB;          /* Grigio bordi */
+  --klarna-gray-400: #9CA3AF;          /* Grigio testo secondario */
+  --klarna-gray-600: #4B5563;          /* Grigio testo */
+  --klarna-gray-800: #1F2937;          /* Grigio scuro */
+  --klarna-gray-900: #111827;          /* Grigio molto scuro */
+  
+  /* Colori Semantici */
+  --klarna-success: #10B981;           /* Verde success */
+  --klarna-warning: #F59E0B;           /* Arancione warning */
+  --klarna-error: #EF4444;             /* Rosso errore */
+  --klarna-info: #3B82F6;              /* Blu informativo */
+  
+  /* ===================
+     TIPOGRAFIA
+     =================== */
+  
+  /* Font Families */
+  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono: 'Menlo', 'Monaco', 'Consolas', monospace;
+  
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+  
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;             /* 12px */
+  --font-size-sm: 0.875rem;            /* 14px */
+  --font-size-base: 1rem;              /* 16px */
+  --font-size-lg: 1.125rem;            /* 18px */
+  --font-size-xl: 1.25rem;             /* 20px */
+  --font-size-2xl: 1.5rem;             /* 24px */
+  --font-size-3xl: 1.875rem;           /* 30px */
+  --font-size-4xl: 2.25rem;            /* 36px */
+  --font-size-5xl: 3rem;               /* 48px */
+  --font-size-6xl: 3.75rem;            /* 60px */
+  --font-size-7xl: 4.5rem;             /* 72px */
+  
+  /* Line Heights */
+  --line-height-none: 1;
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+  
+  /* Letter Spacing */
+  --letter-spacing-tighter: -0.05em;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  --letter-spacing-widest: 0.1em;
+  
+  /* ===================
+     SPACING SYSTEM
+     =================== */
+  
+  /* Sistema di spaziature basato su griglia 4px */
+  --space-0: 0;
+  --space-px: 1px;
+  --space-0-5: 0.125rem;               /* 2px */
+  --space-1: 0.25rem;                  /* 4px */
+  --space-1-5: 0.375rem;               /* 6px */
+  --space-2: 0.5rem;                   /* 8px */
+  --space-2-5: 0.625rem;               /* 10px */
+  --space-3: 0.75rem;                  /* 12px */
+  --space-3-5: 0.875rem;               /* 14px */
+  --space-4: 1rem;                     /* 16px */
+  --space-5: 1.25rem;                  /* 20px */
+  --space-6: 1.5rem;                   /* 24px */
+  --space-7: 1.75rem;                  /* 28px */
+  --space-8: 2rem;                     /* 32px */
+  --space-9: 2.25rem;                  /* 36px */
+  --space-10: 2.5rem;                  /* 40px */
+  --space-11: 2.75rem;                 /* 44px */
+  --space-12: 3rem;                    /* 48px */
+  --space-14: 3.5rem;                  /* 56px */
+  --space-16: 4rem;                    /* 64px */
+  --space-20: 5rem;                    /* 80px */
+  --space-24: 6rem;                    /* 96px */
+  --space-28: 7rem;                    /* 112px */
+  --space-32: 8rem;                    /* 128px */
+  --space-36: 9rem;                    /* 144px */
+  --space-40: 10rem;                   /* 160px */
+  --space-44: 11rem;                   /* 176px */
+  --space-48: 12rem;                   /* 192px */
+  --space-52: 13rem;                   /* 208px */
+  --space-56: 14rem;                   /* 224px */
+  --space-60: 15rem;                   /* 240px */
+  --space-64: 16rem;                   /* 256px */
+  --space-72: 18rem;                   /* 288px */
+  --space-80: 20rem;                   /* 320px */
+  --space-96: 24rem;                   /* 384px */
+  
+  /* Spacing Semantici */
+  --space-xs: var(--space-1);          /* 4px */
+  --space-sm: var(--space-2);          /* 8px */
+  --space-md: var(--space-4);          /* 16px */
+  --space-lg: var(--space-6);          /* 24px */
+  --space-xl: var(--space-8);          /* 32px */
+  --space-2xl: var(--space-12);        /* 48px */
+  --space-3xl: var(--space-16);        /* 64px */
+  --space-4xl: var(--space-20);        /* 80px */
+  --space-5xl: var(--space-24);        /* 96px */
+  
+  /* ===================
+     BORDER RADIUS
+     =================== */
+  
+  --radius-none: 0;
+  --radius-sm: 0.125rem;               /* 2px */
+  --radius-base: 0.25rem;              /* 4px */
+  --radius-md: 0.375rem;               /* 6px */
+  --radius-lg: 0.5rem;                 /* 8px */
+  --radius-xl: 0.75rem;                /* 12px */
+  --radius-2xl: 1rem;                  /* 16px */
+  --radius-3xl: 1.5rem;                /* 24px */
+  --radius-full: 9999px;               /* Completamente rotondo */
+  
+  /* ===================
+     SHADOWS
+     =================== */
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-base: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --shadow-none: 0 0 #0000;
+  
+  /* Shadow Klarna Specifiche */
+  --shadow-pink: 0 4px 14px 0 rgb(255 179 212 / 0.39);
+  --shadow-purple: 0 4px 14px 0 rgb(139 95 191 / 0.39);
+  --shadow-green: 0 4px 14px 0 rgb(0 212 170 / 0.39);
+  
+  /* ===================
+     Z-INDEX SCALE
+     =================== */
+  
+  --z-index-hide: -1;
+  --z-index-auto: auto;
+  --z-index-base: 0;
+  --z-index-docked: 10;
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1100;
+  --z-index-banner: 1200;
+  --z-index-overlay: 1300;
+  --z-index-modal: 1400;
+  --z-index-popover: 1500;
+  --z-index-skiplink: 1600;
+  --z-index-tooltip: 1700;
+  --z-index-toast: 1800;
+  
+  /* ===================
+     BREAKPOINTS
+     =================== */
+  
+  /* Mobile First Approach */
+  --breakpoint-sm: 640px;              /* Small devices */
+  --breakpoint-md: 768px;              /* Medium devices */
+  --breakpoint-lg: 1024px;             /* Large devices */
+  --breakpoint-xl: 1280px;             /* Extra large devices */
+  --breakpoint-2xl: 1536px;            /* 2X Extra large devices */
+  
+  /* ===================
+     TIMING FUNCTIONS
+     =================== */
+  
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* ===================
+     TRANSITION DURATIONS
+     =================== */
+  
+  --duration-75: 75ms;
+  --duration-100: 100ms;
+  --duration-150: 150ms;
+  --duration-200: 200ms;
+  --duration-300: 300ms;
+  --duration-500: 500ms;
+  --duration-700: 700ms;
+  --duration-1000: 1000ms;
+  
+  /* ===================
+     LAYOUT CONTAINERS
+     =================== */
+  
+  --container-xs: 480px;
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+  --container-max: 1200px;             /* Max width per layout Klarna */
+  
+  /* Container Padding */
+  --container-padding-mobile: var(--space-4);    /* 16px sui mobile */
+  --container-padding-desktop: var(--space-6);   /* 24px sui desktop */
+}
+
+/* ===================
+   RESET CSS BASE
+   =================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: var(--klarna-gray-200);
+}
+
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  font-family: var(--font-family-primary);
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+}
+
+body {
+  margin: 0;
+  line-height: inherit;
+  color: var(--klarna-black);
+  background-color: var(--klarna-white);
+}
+
+/* ===================
+   FONT LOADING
+   =================== */
+
+/* Preload hint per font Inter - da aggiungere nel <head> */
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+*/
+
+/* Fallback font display per evitare FOIT */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial'), local('Helvetica'), local('system-ui');
+  size-adjust: 107%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+/* ===================
+   MEDIA QUERIES UTILITIES
+   =================== */
+
+/* Mobile First Media Queries */
+@media (min-width: 640px) {
+  :root {
+    --container-padding: var(--container-padding-desktop);
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    /* Aggiustamenti per tablet/desktop se necessari */
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    /* Aggiustamenti per desktop grandi se necessari */
+  }
+}
+
+/* ===================
+   PRINT STYLES
+   =================== */
+
+@media print {
+  :root {
+    /* Colori ottimizzati per stampa */
+    --klarna-dark: #000000;
+    --klarna-pink: #666666;
+    --klarna-purple: #444444;
+  }
+}
+
+/* ===================
+   DARK MODE SUPPORT
+   =================== */
+
+@media (prefers-color-scheme: dark) {
+  /* Se mai servisse supporto dark mode per Klarna */
+  :root {
+    /* Definire varianti dark dei colori se necessario */
+    /* --klarna-white: #1a1a1a; */
+    /* --klarna-black: #ffffff; */
+  }
+}
+
+/* ===================
+   REDUCED MOTION
+   =================== */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-75: 0ms;
+    --duration-100: 0ms;
+    --duration-150: 0ms;
+    --duration-200: 0ms;
+    --duration-300: 0ms;
+    --duration-500: 0ms;
+    --duration-700: 0ms;
+    --duration-1000: 0ms;
+  }
+}
+
+/* ===================
+   HIGH CONTRAST MODE
+   =================== */
+
+@media (prefers-contrast: high) {
+  :root {
+    /* Aumentare contrasto se richiesto dal sistema */
+    --klarna-gray-400: var(--klarna-gray-600);
+    --klarna-gray-200: var(--klarna-gray-400);
+  }
+}
