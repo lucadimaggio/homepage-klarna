@@ -1,0 +1,121 @@
+/* ===========================================
+   KLARNA HERO - CSS SPECIFICO
+   File: assets/klarna-sections.css
+   Hero gradients, layout, phone mockup
+   =========================================== */
+
+.klarna-hero {
+  background: linear-gradient(135deg, var(--klarna-dark) 0%, #2D1B4E 100%);
+  color: var(--klarna-white);
+  padding-top: var(--section-padding-top, var(--space-3xl));
+  padding-bottom: var(--section-padding-bottom, var(--space-3xl));
+  position: relative;
+  overflow: hidden;
+}
+
+.klarna-hero-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.klarna-hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: var(--font-weight-extrabold);
+  line-height: 1.1;
+  margin-bottom: var(--space-lg);
+}
+
+.klarna-hero-text {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-xl);
+  opacity: 0.9;
+}
+
+.klarna-app-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  font-size: 0.875rem;
+}
+
+.klarna-stars { color: #FCD34D; }
+
+.klarna-cta-btn {
+  background: var(--klarna-white);
+  color: var(--klarna-black);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-xl);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+  display: inline-block;
+  transition: all var(--duration-200) var(--ease-out);
+}
+
+.klarna-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.klarna-hero-phone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.klarna-phone-mockup {
+  width: 280px;
+  height: 500px;
+  background: linear-gradient(135deg, #374151 0%, #1F2937 100%);
+  border-radius: var(--radius-2xl);
+  border: 3px solid #4B5563;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  will-change: transform;
+}
+
+.klarna-phone-screen {
+  width: 90%;
+  height: 85%;
+  background: var(--klarna-black);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--klarna-white);
+  font-size: 0.875rem;
+}
+
+.klarna-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--duration-500) var(--ease-out), transform var(--duration-500) var(--ease-out);
+}
+
+.klarna-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .klarna-hero-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    text-align: center;
+  }
+  .klarna-phone-mockup {
+    width: 220px;
+    height: 400px;
+  }
+}
