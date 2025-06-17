@@ -1,0 +1,129 @@
+{%- comment -%}
+KLARNA WHY CHOOSE SECTION
+File: sections/klarna-why-choose.liquid
+4 benefits + icons + responsive grid
+{%- endcomment -%}
+
+<section class="klarna-features klarna-features--{{ section.settings.background_color }}">
+  <div class="klarna-features-container">
+    {% if section.settings.section_title != blank %}
+      <h2 class="klarna-features-title">{{ section.settings.section_title | escape }}</h2>
+    {% endif %}
+    {% if section.settings.intro_text != blank %}
+      <div class="klarna-why-choose-intro">
+        <p>{{ section.settings.intro_text }}</p>
+      </div>
+    {% endif %}
+    <div class="klarna-why-choose-grid">
+      <div class="klarna-why-choose-benefit">
+        <div class="klarna-why-choose-icon">{{ section.settings.benefit_1_icon }}</div>
+        <h4>{{ section.settings.benefit_1_title | escape }}</h4>
+        <p>{{ section.settings.benefit_1_description }}</p>
+      </div>
+      <div class="klarna-why-choose-benefit">
+        <div class="klarna-why-choose-icon">{{ section.settings.benefit_2_icon }}</div>
+        <h4>{{ section.settings.benefit_2_title | escape }}</h4>
+        <p>{{ section.settings.benefit_2_description }}</p>
+      </div>
+      <div class="klarna-why-choose-benefit">
+        <div class="klarna-why-choose-icon">{{ section.settings.benefit_3_icon }}</div>
+        <h4>{{ section.settings.benefit_3_title | escape }}</h4>
+        <p>{{ section.settings.benefit_3_description }}</p>
+      </div>
+      <div class="klarna-why-choose-benefit">
+        <div class="klarna-why-choose-icon">{{ section.settings.benefit_4_icon }}</div>
+        <h4>{{ section.settings.benefit_4_title | escape }}</h4>
+        <p>{{ section.settings.benefit_4_description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* KLARNA WHY CHOOSE - CSS SPECIFICO */
+:root {
+  --klarna-light-gray: #F9FAFB;
+  --klarna-text-gray: #6B7280;
+}
+.klarna-features {
+  padding: var(--space-3xl) 0;
+}
+.klarna-features--light {
+  background: var(--klarna-light-gray);
+}
+.klarna-features--white {
+  background: var(--klarna-white);
+}
+.klarna-features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+.klarna-features-title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+  color: var(--klarna-black);
+}
+.klarna-why-choose-intro {
+  max-width: 600px;
+  margin: 0 auto var(--space-2xl);
+  text-align: center;
+}
+.klarna-why-choose-intro p {
+  font-size: 1.125rem;
+  color: var(--klarna-text-gray);
+}
+.klarna-why-choose-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-lg);
+}
+.klarna-why-choose-benefit {
+  text-align: center;
+}
+.klarna-why-choose-icon {
+  margin-bottom: var(--space-md);
+  font-size: 2rem;
+}
+.klarna-why-choose-benefit h4 {
+  margin-bottom: var(--space-sm);
+  font-weight: var(--font-weight-semibold);
+}
+.klarna-why-choose-benefit p {
+  color: var(--klarna-text-gray);
+}
+</style>
+
+{% schema %}
+{
+  "name": "Klarna Why Choose",
+  "tag": "section",
+  "class": "klarna-why-choose",
+  "settings": [
+    {"type": "text", "id": "section_title", "label": "Titolo sezione", "default": "Perché scegliere Klarna"},
+    {"type": "textarea", "id": "intro_text", "label": "Testo introduttivo", "default": "Acquista in sicurezza, con un checkout velocissimo e opzioni di pagamento flessibili adatte al tuo budget."},
+    {"type": "text", "id": "benefit_1_icon", "label": "Icona beneficio 1", "default": "💸"},
+    {"type": "text", "id": "benefit_1_title", "label": "Titolo beneficio 1", "default": "Pagamenti flessibili"},
+    {"type": "textarea", "id": "benefit_1_description", "label": "Descrizione beneficio 1", "default": "Paga nei tempi con le opzioni di pagamento flessibili di Klarna, per gestire al meglio il tuo budget."},
+    {"type": "text", "id": "benefit_2_icon", "label": "Icona beneficio 2", "default": "✅"},
+    {"type": "text", "id": "benefit_2_title", "label": "Titolo beneficio 2", "default": "Checkout facile"},
+    {"type": "textarea", "id": "benefit_2_description", "label": "Descrizione beneficio 2", "default": "Completa i tuoi acquisti in pochi click, senza inserire i dati della carta ogni volta."},
+    {"type": "text", "id": "benefit_3_icon", "label": "Icona beneficio 3", "default": "🛡️"},
+    {"type": "text", "id": "benefit_3_title", "label": "Titolo beneficio 3", "default": "Fai shopping in sicurezza"},
+    {"type": "textarea", "id": "benefit_3_description", "label": "Descrizione beneficio 3", "default": "I tuoi acquisti sono protetti con la massima sicurezza e tecnologie avanzate."},
+    {"type": "text", "id": "benefit_4_icon", "label": "Icona beneficio 4", "default": "💰"},
+    {"type": "text", "id": "benefit_4_title", "label": "Titolo beneficio 4", "default": "Cashback e offerte"},
+    {"type": "textarea", "id": "benefit_4_description", "label": "Descrizione beneficio 4", "default": "Guadagna cashback e scopri offerte esclusive sui tuoi brand preferiti."},
+    {"type": "select", "id": "background_color", "label": "Colore sfondo", "options": [{"value": "light", "label": "Light Gray"}, {"value": "white", "label": "White"}], "default": "light"}
+  ],
+  "presets": [
+    {"name": "Klarna Why Choose"}
+  ]
+}
+{% endschema %}
+
+{% javascript %}
+// KLARNA WHY CHOOSE - JAVASCRIPT (se necessario)
+{% endjavascript %}
