@@ -1,0 +1,70 @@
+{%- comment -%}
+KLARNA APP SECTION
+File: sections/klarna-app.liquid
+Split layout + phone mockup + pink gradient background
+{%- endcomment -%}
+
+<section class="klarna-app {% if section.settings.background_style == 'solid' %}klarna-app--solid{% endif %}">
+  <div class="klarna-app-container {% if section.settings.reverse_layout %}klarna-app-container--reverse{% endif %}">
+    <div class="klarna-app-content">
+      {% if section.settings.section_title != blank %}
+        <h2>{{ section.settings.section_title | escape }}</h2>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <p class="klarna-app-text">{{ section.settings.description }}</p>
+      {% endif %}
+      {% if section.settings.show_both_stores %}
+        <div class="klarna-app-stores">
+          {% if section.settings.app_store_url != blank %}
+            <a href="{{ section.settings.app_store_url }}" class="klarna-app-btn">App Store</a>
+          {% endif %}
+          {% if section.settings.google_play_url != blank %}
+            <a href="{{ section.settings.google_play_url }}" class="klarna-app-btn">Google Play</a>
+          {% endif %}
+        </div>
+      {% else %}
+        {% if section.settings.cta_url != blank %}
+          <a href="{{ section.settings.cta_url }}" class="klarna-app-btn">{{ section.settings.cta_text | escape }}</a>
+        {% endif %}
+      {% endif %}
+    </div>
+    <div class="klarna-app-visual">
+      <div class="klarna-app-phone">
+        <div class="klarna-app-phone-screen">
+          <div class="klarna-app-icon">{{ section.settings.phone_icon }}</div>
+          <div class="klarna-app-amount">{{ section.settings.phone_amount }}</div>
+          <div class="klarna-app-label">{{ section.settings.phone_app_label }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ 'klarna-app.css' | asset_url | stylesheet_tag }}
+
+{% schema %}
+{
+  "name": "Klarna App",
+  "tag": "section",
+  "class": "klarna-app",
+  "settings": [
+    { "type": "text", "id": "section_title", "label": "Section Title", "default": "Porta Klarna sempre con te" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Guadagna cashback, acquista nei tuoi negozi preferiti..." },
+    { "type": "text", "id": "cta_text", "label": "CTA Text", "default": "Scarica l'app" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+    { "type": "url", "id": "app_store_url", "label": "App Store URL" },
+    { "type": "url", "id": "google_play_url", "label": "Google Play URL" },
+    { "type": "checkbox", "id": "show_both_stores", "label": "Show App Store & Google Play", "default": false },
+    { "type": "text", "id": "phone_icon", "label": "Phone Icon", "default": "📱" },
+    { "type": "text", "id": "phone_amount", "label": "Phone Amount", "default": "32,50 €" },
+    { "type": "text", "id": "phone_app_label", "label": "Phone App Label", "default": "Klarna App" },
+    { "type": "checkbox", "id": "reverse_layout", "label": "Reverse Layout", "default": false },
+    { "type": "select", "id": "background_style", "label": "Background Style", "options": [ {"value": "gradient", "label": "Pink Gradient"}, {"value": "solid", "label": "Solid Pink"} ], "default": "gradient" }
+  ],
+  "presets": [
+    { "name": "Klarna App" }
+  ]
+}
+{% endschema %}
+
+{{ 'klarna-app.js' | asset_url | script_tag }}
