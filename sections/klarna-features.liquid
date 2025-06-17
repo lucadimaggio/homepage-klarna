@@ -1,0 +1,85 @@
+{%- comment -%}
+KLARNA FEATURES SECTION
+File: sections/klarna-features.liquid
+3 gradient cards + grid layout + animations
+{%- endcomment -%}
+
+{{ "klarna-features.css" | asset_url | stylesheet_tag }}
+<section id="klarna-features-{{ section.id }}" class="klarna-features">
+  <div class="klarna-features-container">
+    {% if section.settings.section_title != blank %}
+    <h2 class="klarna-features-title">{{ section.settings.section_title | escape }}</h2>
+    {% endif %}
+    <div class="klarna-features-grid">
+      <div class="klarna-feature-card">
+        {% if section.settings.card_1_title != blank %}
+        <h3>{{ section.settings.card_1_title | escape }}</h3>
+        {% endif %}
+        {% if section.settings.card_1_description != blank %}
+        <p>{{ section.settings.card_1_description }}</p>
+        {% endif %}
+        {% if section.settings.card_1_link_url != blank %}
+        <a href="{{ section.settings.card_1_link_url }}" class="klarna-feature-link">{{ section.settings.card_1_link_text | escape }}</a>
+        {% else %}
+        <span class="klarna-feature-link">{{ section.settings.card_1_link_text | escape }}</span>
+        {% endif %}
+      </div>
+      <div class="klarna-feature-card">
+        {% if section.settings.card_2_title != blank %}
+        <h3>{{ section.settings.card_2_title | escape }}</h3>
+        {% endif %}
+        {% if section.settings.card_2_description != blank %}
+        <p>{{ section.settings.card_2_description }}</p>
+        {% endif %}
+        {% if section.settings.card_2_link_url != blank %}
+        <a href="{{ section.settings.card_2_link_url }}" class="klarna-feature-link">{{ section.settings.card_2_link_text | escape }}</a>
+        {% else %}
+        <span class="klarna-feature-link">{{ section.settings.card_2_link_text | escape }}</span>
+        {% endif %}
+      </div>
+      <div class="klarna-feature-card">
+        {% if section.settings.card_3_title != blank %}
+        <h3>{{ section.settings.card_3_title | escape }}</h3>
+        {% endif %}
+        {% if section.settings.card_3_description != blank %}
+        <p>{{ section.settings.card_3_description }}</p>
+        {% endif %}
+        {% if section.settings.card_3_link_url != blank %}
+        <a href="{{ section.settings.card_3_link_url }}" class="klarna-feature-link">{{ section.settings.card_3_link_text | escape }}</a>
+        {% else %}
+        <span class="klarna-feature-link">{{ section.settings.card_3_link_text | escape }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if section.settings.enable_animations %}
+  <script src="{{ 'klarna-features.js' | asset_url }}" defer></script>
+{% endif %}
+{% schema %}
+{
+  "name": "Klarna Features",
+  "tag": "section",
+  "class": "klarna-features-section",
+  "settings": [
+    { "type": "text", "id": "section_title", "label": "Titolo Sezione", "default": "Usa Klarna quando fai shopping" },
+    { "type": "text", "id": "card_1_title", "label": "Titolo Card 1", "default": "Al checkout" },
+    { "type": "textarea", "id": "card_1_description", "label": "Descrizione Card 1", "default": "Scegli Klarna alla cassa e paga come preferisci" },
+    { "type": "text", "id": "card_1_link_text", "label": "Testo Link Card 1", "default": "Scopri di più →" },
+    { "type": "url", "id": "card_1_link_url", "label": "URL Link Card 1" },
+    { "type": "text", "id": "card_2_title", "label": "Titolo Card 2", "default": "Nella Klarna app" },
+    { "type": "textarea", "id": "card_2_description", "label": "Descrizione Card 2", "default": "Trova le migliori offerte e gestisci i tuoi pagamenti" },
+    { "type": "text", "id": "card_2_link_text", "label": "Testo Link Card 2", "default": "Scarica l'app →" },
+    { "type": "url", "id": "card_2_link_url", "label": "URL Link Card 2" },
+    { "type": "text", "id": "card_3_title", "label": "Titolo Card 3", "default": "In negozio" },
+    { "type": "textarea", "id": "card_3_description", "label": "Descrizione Card 3", "default": "Usa la carta Klarna o l'app per pagare ovunque" },
+    { "type": "text", "id": "card_3_link_text", "label": "Testo Link Card 3", "default": "Scopri di più →" },
+    { "type": "url", "id": "card_3_link_url", "label": "URL Link Card 3" },
+    { "type": "checkbox", "id": "enable_animations", "label": "Abilita Animazioni", "default": true }
+  ],
+  "presets": [
+    { "name": "Klarna Features" }
+  ]
+}
+{% endschema %}

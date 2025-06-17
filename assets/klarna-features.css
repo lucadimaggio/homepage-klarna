@@ -1,0 +1,72 @@
+/* KLARNA FEATURES - CSS SPECIFICO */
+.klarna-features {
+  padding: var(--space-3xl) 0;
+  background: var(--klarna-white);
+}
+
+.klarna-features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.klarna-features-title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+  color: var(--klarna-black);
+}
+
+.klarna-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-xl);
+}
+
+.klarna-feature-card {
+  background: linear-gradient(135deg, var(--klarna-purple) 0%, var(--klarna-pink) 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  text-align: center;
+  color: var(--klarna-white);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.klarna-feature-card:nth-child(2) {
+  background: linear-gradient(135deg, var(--klarna-pink) 0%, #FF8A9B 100%);
+}
+
+.klarna-feature-card:nth-child(3) {
+  background: linear-gradient(135deg, var(--klarna-purple) 0%, #6B46C1 100%);
+}
+
+.klarna-feature-card:hover {
+  transform: translateY(-4px);
+}
+
+.klarna-feature-card h3 {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-md);
+}
+
+.klarna-feature-card p {
+  opacity: 0.9;
+  margin-bottom: var(--space-lg);
+}
+
+.klarna-feature-link {
+  color: var(--klarna-white);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.klarna-feature-link:hover {
+  text-decoration: underline;
+}
